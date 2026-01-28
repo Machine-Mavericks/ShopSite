@@ -31,6 +31,9 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
         <button onClick={validate}>Validate</button>
         <div id="success-div" style={{display:"none"}}>
             <h3>Congratulations!</h3>
+            <p>
+                Enter your name and submit your results. Wait a second or two after pressing the submit button for confirmation.
+            </p>
             <label htmlFor="name-input">Your Name: </label>
             <input id="name-input" name="name-input" type="text"></input>
             <button id="submit" style={{marginLeft: '1em'}} onClick={submit}>Submit</button>
@@ -84,7 +87,7 @@ function shuffle<T>(array: T[]) : T[] {
     return out;
 }
 
-function validate(){
+function validate() : boolean{
     var blanks = Array.from(document.getElementsByClassName(styles.blank));
     let correct = true;
     for (let blank of blanks){
@@ -105,9 +108,14 @@ function validate(){
     else {
         document.getElementById("success-div").style.display = "none";
     }
+
+    return correct;
 }
 
 function submit(){
+    if (!validate())
+        return;
+
     // Get the full quiz for recordkeeping
     let fullContent = document.getElementById("quiz").innerText;
     let quizName = document.getElementById("quiz").getAttribute("quiz-name");
@@ -121,8 +129,36 @@ function submit(){
         solution += `${blank.getAttribute("quiz-answer")}, `
     }
 
-    let name = document.getElementById("name-input").innerText;
+    let input : any = document.getElementById("name-input");
+    let name = input.value;
 
     let body = `${name} Completed the quiz ${quizName}\n\nTheir answers:\n${submitted}\nSolution:\n${solution}\n\nFull Quiz Content:\n${fullContent}`
     console.log(body);
+
+    // Send as email
+    fetch('https://api.smtp2go.com/v3/email/send', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "accept": "application/json"
+        },
+        body: JSON.stringify({
+            "api_key": "api-EA85AE61AA794493926EA9233E1F5772",
+            "sender": "safetytraining@gregk.ca",
+            "to": "machinemavericks@gmail.com",
+            "subject": `Safety Quiz Submission: ${name}/${quizName}`,
+            "text_body": body
+        })
+    }).then((response) => {
+        if(response.status != 200){
+            alert("Error sending submission email, let Greg know")
+        }
+        else {
+            alert("Submitted")
+        }
+        console.log(response);
+        response.text().then(text => {
+            console.log(text)
+        })
+    })
 }
