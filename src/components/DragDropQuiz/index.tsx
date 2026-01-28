@@ -15,8 +15,13 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
 
     return (<div>
         <WordsArrayContext.Provider value={{data: wordsList, setter: addWordToList}}>
+            <p>
+                <strong>Drag and drop words from the bank at the bottom into the blanks.</strong>
+            </p>
             {props.children}
-            {shuffle(wordsList.map(word => Word(word)))}
+            <div className={styles.wordbank}>
+                {shuffle(wordsList.map(word => Word(word)))}
+            </div>
         </WordsArrayContext.Provider>
     </div>)
 }
