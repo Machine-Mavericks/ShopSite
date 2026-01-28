@@ -7,6 +7,14 @@
   transition: background-color 200ms;
 }
 
+.blank.correct {
+    border: 2px solid var(--ifm-color-success);
+}
+
+.blank.incorrect {
+    border: 2px solid var(--ifm-color-danger);
+}
+
 .word {
   display: inline-block;
   background-color: var(--ifm-color-emphasis-300);
@@ -19,14 +27,6 @@
 
 .word:hover {
   background-color: var(--ifm-color-emphasis-400);
-}
-
-.word.correct {
-    border: 2px solid var(--ifm-color-success);
-}
-
-.word.incorrect {
-    border: 2px solid var(--ifm-color-danger);
 }
 
 .wordbank {

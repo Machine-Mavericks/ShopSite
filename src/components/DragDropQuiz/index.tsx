@@ -13,7 +13,7 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
         }
     }
 
-    return (<div>
+    return (<div id="quiz" quiz-name="Bandsaw">
         <WordsArrayContext.Provider value={{data: wordsList, setter: addWordToList}}>
             <p>
                 <strong>Drag and drop words from the bank at the bottom into the blanks.</strong>
@@ -23,13 +23,17 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
                 {shuffle(wordsList.map(word => Word(word)))}
             </div>
         </WordsArrayContext.Provider>
+        <button onClick={validate}>Validate</button>
+        <div id="success-div" style={{display:"block"}}>
+            <h3>Congratulations!</h3>
+        </div>
     </div>)
 }
 
 export function Blank(props: {width:number, answer:string}) : ReactNode {
     const wordsArray = useContext(WordsArrayContext);
     wordsArray.setter(props.answer);
-    return <span className={styles.blank} onDragOver={dragoverHandler} onDrop={dropHandler} style={{minWidth: Math.max(props.width, 2) + 'em' }}>&nbsp;</span>
+    return <span quiz-answer={props.answer} className={styles.blank} onDragOver={dragoverHandler} onDrop={dropHandler} style={{minWidth: Math.max(props.width, 2) + 'em' }}>&nbsp;</span>
 }
 
 function Word(text: string) {
@@ -63,4 +67,24 @@ function shuffle<T>(array: T[]) : T[] {
         value.splice(idx, 1);
     }
     return out;
+}
+
+function validate(){
+    var blanks = Array.from(document.getElementsByClassName(styles.blank));
+    let correct = true;
+    for (let blank of blanks){
+        let answer = blank.getAttribute("quiz-answer");
+        let value = blank.textContent;
+        blank.classList.remove(styles.correct, styles.incorrect);
+        if(answer === value){
+            blank.classList.add(styles.correct);
+        }
+        else {
+            correct = false;
+            blank.classList.add(styles.incorrect);
+        }
+    }
+    if (correct){
+        document.getElementById("success-div").style.display = "block";
+    }
 }
