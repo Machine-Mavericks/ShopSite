@@ -31,7 +31,7 @@ export function DragDropQuiz(props: {children: any, name: string}) : ReactNode {
         <br/>
         <button onClick={validate} className={styles.checkButton}>Check Answers</button>
         <br/>
-        <div id="success-div" style={{display:"block"}}>
+        <div id="success-div" style={{display:"none"}}>
             <h3>Congratulations!</h3>
             <p>
                 Enter your name and submit your results. Wait a second or two after pressing the submit button for confirmation.
@@ -115,8 +115,10 @@ function validate() : boolean{
 }
 
 function submit(){
-    if (!validate())
+    if (!validate()){
+        alert("Answers not correct, please fix before submitting")
         return;
+    }
 
     // Get the full quiz for recordkeeping
     let fullContent = document.getElementById("quiz").innerText;
