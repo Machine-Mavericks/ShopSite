@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 
 export const WordsArrayContext = createContext({data:[""], setter:(word:string) => {}});
 
-export function DragDropQuiz(props: {children: any}) : ReactNode {
+export function DragDropQuiz(props: {children: any, name: string}) : ReactNode {
     const [wordsList, setWordList] = useState([]);
 
     const addWordToList = (word:string) => {
@@ -18,7 +18,7 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
             <p>
                 <strong>Drag and drop words from the bank at the bottom into the blanks.</strong>
             </p>
-            <div id="quiz" quiz-name="Bandsaw">
+            <div id="quiz" quiz-name={props.name}>
             <span className={styles.hidden}>Questions:</span>
             {props.children}
             {/* Hidden text for submission copy */}
