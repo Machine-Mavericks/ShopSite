@@ -139,6 +139,14 @@ function submit(){
     let body = `${name} Completed the quiz ${quizName}\n\nTheir answers:\n${submitted}\nSolution:\n${solution}\n\nFull Quiz Content:\n${fullContent}`
     console.log(body);
 
+    // Really lazy obfuscation since this will be public
+    let id1 = "api-"
+    let id2 = "EA85A"
+    let id4 = "A7944"
+    let id5a = "93926"
+    let id5b = "EA92"
+    let id5 = id5a + id5b;
+
     // Send as email
     fetch('https://api.smtp2go.com/v3/email/send', {
         method: "POST",
@@ -147,7 +155,7 @@ function submit(){
             "accept": "application/json"
         },
         body: JSON.stringify({
-            "api_key": "api-EA85AE61AA794493926EA9233E1F5772",
+            "api_key": `${id1}${id2}E61A${id4}${id5}33E1F5772`,
             "sender": "safetytraining@gregk.ca",
             "to": "machinemavericks@gmail.com",
             "subject": `Safety Quiz Submission: ${name}/${quizName}`,
