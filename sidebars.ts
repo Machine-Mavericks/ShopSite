@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
 
   // But you can create a sidebar manually
   safetySidebar: [
-    '404',
+    'safety',
     {
       type: 'category',
       label: 'Tools',
@@ -38,7 +38,8 @@ const sidebars: SidebarsConfig = {
           dirName: 'machines'
         }
       ]
-    }
+    },
+    'safedoc'
   ]
 };
 
