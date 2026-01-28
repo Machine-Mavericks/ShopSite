@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshop_training=globalThis.webpackChunkshop_training||[]).push([[858],{5516(s){s.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"default"}')}}]);
