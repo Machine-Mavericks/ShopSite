@@ -28,8 +28,10 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
             </div>
             </div>
         </WordsArrayContext.Provider>
-        <button onClick={validate}>Validate</button>
-        <div id="success-div" style={{display:"none"}}>
+        <br/>
+        <button onClick={validate} className={styles.checkButton}>Check Answers</button>
+        <br/>
+        <div id="success-div" style={{display:"block"}}>
             <h3>Congratulations!</h3>
             <p>
                 Enter your name and submit your results. Wait a second or two after pressing the submit button for confirmation.

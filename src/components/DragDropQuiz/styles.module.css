@@ -47,3 +47,19 @@
     overflow: hidden;
     display: inline-block;
 }
+
+.checkButton {
+    margin: auto;
+    display: block;
+    font-size: 150%;
+    background-color: var(--ifm-color-primary);
+    border: none;
+    border-radius: 0.4em;
+    cursor:pointer;
+    transition: background-color 300ms;
+    padding: 0.25em 0.5em;
+}
+
+.checkButton:hover {
+    background-color: var(--ifm-color-primary-darker);
+}
