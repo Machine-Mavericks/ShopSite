@@ -13,19 +13,27 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
         }
     }
 
-    return (<div id="quiz" quiz-name="Bandsaw">
+    return (<div>
         <WordsArrayContext.Provider value={{data: wordsList, setter: addWordToList}}>
             <p>
                 <strong>Drag and drop words from the bank at the bottom into the blanks.</strong>
             </p>
+            <div id="quiz" quiz-name="Bandsaw">
+            <span className={styles.hidden}>Questions:</span>
             {props.children}
+            {/* Hidden text for submission copy */}
+            <span className={styles.hidden}>Word Bank:</span>
             <div className={styles.wordbank}>
                 {shuffle(wordsList.map(word => Word(word)))}
             </div>
+            </div>
         </WordsArrayContext.Provider>
         <button onClick={validate}>Validate</button>
-        <div id="success-div" style={{display:"block"}}>
+        <div id="success-div" style={{display:"none"}}>
             <h3>Congratulations!</h3>
+            <label htmlFor="name-input">Your Name: </label>
+            <input id="name-input" name="name-input" type="text"></input>
+            <button id="submit" style={{marginLeft: '1em'}} onClick={submit}>Submit</button>
         </div>
     </div>)
 }
@@ -33,7 +41,14 @@ export function DragDropQuiz(props: {children: any}) : ReactNode {
 export function Blank(props: {width:number, answer:string}) : ReactNode {
     const wordsArray = useContext(WordsArrayContext);
     wordsArray.setter(props.answer);
-    return <span quiz-answer={props.answer} className={styles.blank} onDragOver={dragoverHandler} onDrop={dropHandler} style={{minWidth: Math.max(props.width, 2) + 'em' }}>&nbsp;</span>
+    return (
+            <span>
+            {/* Hidden text for submission copy */}
+            <span className={styles.hidden}>|</span>
+            <span quiz-answer={props.answer} className={styles.blank} onDragOver={dragoverHandler} onDrop={dropHandler} style={{minWidth: Math.max(props.width, 2) + 'em' }}>&nbsp;</span>
+            <span className={styles.hidden}>|</span>
+            </span>
+    )
 }
 
 function Word(text: string) {
@@ -87,4 +102,27 @@ function validate(){
     if (correct){
         document.getElementById("success-div").style.display = "block";
     }
+    else {
+        document.getElementById("success-div").style.display = "none";
+    }
+}
+
+function submit(){
+    // Get the full quiz for recordkeeping
+    let fullContent = document.getElementById("quiz").innerText;
+    let quizName = document.getElementById("quiz").getAttribute("quiz-name");
+    
+    // Get just the submitted answers for summary
+    let submitted = "";
+    let solution = "";
+    var blanks = Array.from(document.getElementsByClassName(styles.blank));
+    for (let blank of blanks){
+        submitted += `${blank.textContent}, `;
+        solution += `${blank.getAttribute("quiz-answer")}, `
+    }
+
+    let name = document.getElementById("name-input").innerText;
+
+    let body = `${name} Completed the quiz ${quizName}\n\nTheir answers:\n${submitted}\nSolution:\n${solution}\n\nFull Quiz Content:\n${fullContent}`
+    console.log(body);
 }

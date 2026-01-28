@@ -40,3 +40,10 @@
     background-color: var(--ifm-color-emphasis-200);
     border-radius: 1em;
 }
+
+.hidden {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+}
