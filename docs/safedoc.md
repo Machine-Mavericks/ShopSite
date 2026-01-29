@@ -8,7 +8,7 @@ The OCTE Construction/Custom Woodworking SAFEDoc publised in 2022 is the foundat
 If you'd like to learn about more machines and procedural elements, feel free to give it a read.
 
 <iframe
-  src="/OCTE Docs/Construction_2022.pdf"
+  src="/ShopSite/OCTE Docs/Construction_2022.pdf"
   width="100%"
   height="700px"
   title="OCTE Construction/Custom Woodworking 2022"

@@ -8,7 +8,7 @@ sidebar_position: 1
 OCTE's Hand Drill Safety Information Sheet.
 
 <iframe
-  src="/OCTE Docs/Drill_SIS.pdf"
+  src="/ShopSite/OCTE Docs/Drill_SIS.pdf"
   width="100%"
   height="700px"
   title="Drill Standard Operating Procedure"

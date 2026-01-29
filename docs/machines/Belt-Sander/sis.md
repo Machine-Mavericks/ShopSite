@@ -8,7 +8,7 @@ sidebar_position: 1
 OCTE's Belt Sander Safety Information Sheet.
 
 <iframe
-  src="/OCTE Docs/Belt_Sander_SIS.pdf"
+  src="/ShopSite/OCTE Docs/Belt_Sander_SIS.pdf"
   width="100%"
   height="700px"
   title="Belt Sander Standard Operating Procedure"
