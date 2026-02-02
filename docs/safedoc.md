@@ -3,9 +3,20 @@ id: safedoc
 title: SAFEDoc
 ---
 
-The OCTE Construction/Custom Woodworking SAFEDoc publised in 2022 is the foundation for the resources on this website. Most SISs, SOPs, and Quizzes are extracted from it.
+The OCTE SAFEDocs are the the foundation for the resources on this website. The Safety Information Sheets and Quizzes are extracted from them.
+Standard operating procedures are also taken from OCTE, but are found separately on [their website](https://octe.ca/resources/safety).
 
-If you'd like to learn about more machines and procedural elements, feel free to give it a read.
+The primary source is the 2022 revision of the Manufacturing SAFEDoc, as it's most relevant to what we do.
+The 2022 Construction/Custom Woodworking SAFEDoc is used as a alternate source for machines not referenced by the Manufacturing document.
+
+If you'd like to learn about more machines and procedural elements, feel free to give the SAFEDocs a read.
+
+<iframe
+  src="/ShopSite/OCTE Docs/Manufacturing_2022.pdf"
+  width="100%"
+  height="700px"
+  title="OCTE Manufacturing 2022"
+></iframe>
 
 <iframe
   src="/ShopSite/OCTE Docs/Construction_2022.pdf"
