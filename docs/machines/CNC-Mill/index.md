@@ -1,6 +1,6 @@
 ---
 id: cnc-mill-index
-title: CNC Mill
+title: CNC Mill [Tormach]
 sidebar_position: 0
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: cnc-router-index
-title: CNC Router
+title: CNC Router [Omio/Laguna]
 sidebar_position: 0
 ---
 
