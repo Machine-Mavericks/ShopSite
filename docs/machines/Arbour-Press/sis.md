@@ -13,5 +13,3 @@ OCTE's Arbour Press Safety Information Sheet.
   height="700px"
   title="Abour Press Standard Operating Procedure"
 ></iframe>
-
-This is from an older 2003 version of the SAFEDocs documentation. I'm not sure why they removed it for the latest version.

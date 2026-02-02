@@ -11,5 +11,5 @@ OCTE's Belt Sander Safety Information Sheet.
   src="/ShopSite/OCTE Docs/Belt_Sander_SIS.pdf"
   width="100%"
   height="700px"
-  title="Belt Sander Standard Operating Procedure"
+  title="Belt Sander Safety Information Sheet"
 ></iframe>
