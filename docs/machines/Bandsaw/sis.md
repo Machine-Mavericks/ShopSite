@@ -11,5 +11,5 @@ OCTE's Bandsaw Safety Information Sheet.
   src="/ShopSite/OCTE Docs/Bandsaw_SIS.pdf"
   width="100%"
   height="700px"
-  title="Bandsaw Standard Operating Procedure"
+  title="Bandsaw Safety Information Sheet"
 ></iframe>
