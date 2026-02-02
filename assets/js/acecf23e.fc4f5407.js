@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshop_training=globalThis.webpackChunkshop_training||[]).push([[1903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/ShopSite/blog","blogTitle":"Blog","authorsListPath":"/ShopSite/blog/authors"}')}}]);
